@@ -19,7 +19,7 @@ suspend fun checkIn(
     Validaciones.validarCodigo(codigoReserva)?.let { return CheckIn.Error(it) }
 
     // 2) Validar tipo de cliente (R3).
-    val tipoCliente = TipoCliente.desdeTexto(tipoClienteTexto)
+    val tipoCliente = desdeTexto(tipoClienteTexto)
         ?: return CheckIn.Error(ErrorNovaStay.CodigoInvalido(tipoClienteTexto))
 
     // 3) Buscar la primera habitación disponible del tipo pedido (R5).

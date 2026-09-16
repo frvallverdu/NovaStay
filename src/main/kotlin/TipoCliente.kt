@@ -11,9 +11,9 @@ sealed class TipoCliente(val descuento: Double) {
 
 
 fun desdeTexto(texto: String): TipoCliente? = when (texto.trim().lowercase()) {
-    "regular" -> Regular
-    "abonado" -> Abonado
-    "discapacitado" -> Discapacitado
+    "regular" -> TipoCliente.Regular
+    "abonado" -> TipoCliente.Abonado
+    "discapacitado" -> TipoCliente.Discapacitado
     else -> null
 }
 

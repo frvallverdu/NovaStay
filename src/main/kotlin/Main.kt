@@ -36,7 +36,15 @@ suspend fun registrarCheckIn(hotel: NovaStay) {
     print("Tipo de cliente (regular/abonado/discapacitado): ")
     val tipoCliente = readln()
     print("Tipo de habitacion (individual/doble/suite): ")
-    val tipoHabitacionDeseada = readln()
+    var tipoHabitacionDeseada = readln()
+    if (tipoHabitacionDeseada.trim().lowercase() == "suite") {
+        print("¿Suite premium? (s/n): ")
+        val premium = readln().trim().lowercase()
+        if (premium == "s") {
+            tipoHabitacionDeseada = "suite premium"
+        }
+    }
+
 
     println("Procesando check-in, comunicando con el sistema de cerraduras...")
     when (val resultado = checkIn(hotel, codigo, nombre, tipoCliente, tipoHabitacionDeseada)) {
